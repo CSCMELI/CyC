@@ -1,0 +1,58 @@
+<!-- ============================================
+     EJEMPLO: NETLIFY FORMS
+     ============================================
+     INSTRUCCIONES:
+     1. Agrega 'netlify' al atributo del form
+     2. Despliega tu sitio en Netlify
+     3. ¡Listo! Funciona automáticamente
+     4. Los mensajes aparecen en el panel de Netlify
+     ============================================
+-->
+
+<!-- En index.html, cambia esta línea: -->
+<!-- DE: -->
+<form class="contact-form" id="contact-form" aria-label="Formulario de contacto">
+
+<!-- A: -->
+<form class="contact-form" id="contact-form" netlify aria-label="Formulario de contacto">
+
+<!-- ============================================
+     OPCIONAL: Si quieres usar JavaScript personalizado
+     ============================================
+     Netlify Forms funciona automáticamente, pero si quieres
+     mantener el código JavaScript actual, puedes usar esto:
+-->
+
+<!-- En script.js, reemplaza el setTimeout con: -->
+fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(contactForm))
+})
+.then(() => {
+    formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
+    formMessage.className = 'form-message show success';
+    formMessage.setAttribute('role', 'alert');
+    contactForm.reset();
+    setTimeout(() => formMessage.classList.remove('show'), 5000);
+})
+.catch(() => {
+    formMessage.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+    formMessage.className = 'form-message show error';
+    formMessage.setAttribute('role', 'alert');
+})
+.finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnText;
+    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+<!-- ============================================
+     VENTAJAS DE NETLIFY FORMS:
+     ✅ Completamente gratis e ilimitado
+     ✅ No necesitas backend
+     ✅ Panel de administración incluido
+     ✅ Exporta datos a CSV
+     ✅ Integración con Zapier
+     ✅ Filtros y búsqueda
+     ============================================

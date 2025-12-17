@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>C & C - Vanguardia e Innovación en Soluciones Tecnológicas</title>
+    <meta name="description" content="C & C ofrece servicios tecnológicos especializados: soporte técnico, instalación de equipos, videovigilancia, reparación, desarrollo de software y servidores. Soluciones integrales para tu negocio.">
+    <meta name="keywords" content="soporte técnico, instalación equipos, videovigilancia, reparación computadoras, desarrollo software, servidores, soluciones tecnológicas, IT services">
+    <meta name="author" content="C & C - Vanguardia e Innovación en Soluciones Tecnológicas">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cyc-soluciones.netlify.app/">
+    <meta property="og:title" content="C & C - Vanguardia e Innovación en Soluciones Tecnológicas">
+    <meta property="og:description" content="Soluciones tecnológicas integrales: soporte técnico, instalación, videovigilancia, reparación, desarrollo y servidores.">
+    <meta property="og:image" content="imagenes.img/logo.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cyc-soluciones.netlify.app/">
+    <meta property="twitter:title" content="C & C - Vanguardia e Innovación en Soluciones Tecnológicas">
+    <meta property="twitter:description" content="Soluciones tecnológicas integrales para tu negocio.">
+    <meta property="twitter:image" content="imagenes.img/logo.jpg">
+    
+    <!-- Favicon -->
+    <link href="imagenes.img/iden (1).png" rel="icon">
+    <link rel="apple-touch-icon" href="imagenes.img/iden (1).png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+   <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#inicio" class="logo" aria-label="C & C - Ir al inicio">
+                    <img src="imagenes.img/iden (1).png" alt="Logo C & C - Vanguardia e Innovación en Soluciones Tecnológicas" loading="eager">
+                </a>
+                
+                <div class="nav-main">
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Overlay negro -->
+                <div class="menu-overlay" id="menu-overlay"></div>
+
+                <!-- Menú de servicios -->
+                <nav class="nav-menu" id="nav-menu">
+                    <button class="nav-close" id="nav-close" aria-label="Cerrar menú">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul class="nav-list">
+                        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                        <li><a href="#soporte-tecnico" class="nav-link">Soporte Técnico</a></li>
+                        <li><a href="#instalacion" class="nav-link">Instalación</a></li>
+                        <li><a href="#videovigilancia" class="nav-link">Videovigilancia</a></li>
+                        <li><a href="#reparacion" class="nav-link">Reparación</a></li>
+                        <li><a href="#desarrollo" class="nav-link">Desarrollo</a></li>
+                        <li><a href="#servidores" class="nav-link">Servidores</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-logo-bg">
+            <img src="imagenes.img/logo.jpg" alt="C & C - Vanguardia e Innovación en Soluciones Tecnológicas - Hero Banner" loading="eager" decoding="async">
+        </div>
+        <a href="#inicio" class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="#contacto" class="btn-primary">Contáctanos</a>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="nosotros-section">
+        <div class="container">
+            <div class="nosotros-content">
+                <div class="nosotros-image">
+                    <img src="imagenes.img/logo.png" alt="Sobre Nosotros - C & C Soluciones Tecnológicas" loading="lazy" decoding="async">
+                </div>
+                <div class="nosotros-text">
+                    <!--<h2>Sobre Nosotros</h2>-->
+                    <p>En C & C, somos especialistas en soluciones tecnológicas de vanguardia. Con años de experiencia en el sector, nos dedicamos a brindar servicios de alta calidad que impulsan el éxito de nuestros clientes.</p>
+                    <p>Nuestro equipo de profesionales altamente capacitados está comprometido con la excelencia y la innovación, ofreciendo soluciones personalizadas que se adaptan a las necesidades específicas de cada proyecto.</p>
+                    <div class="nosotros-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Experiencia comprobada</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Equipo profesional</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Soluciones innovadoras</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Compromiso con la calidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios - Grid de Tarjetas -->
+    <section id="servicios" class="services-grid-section">
+        <div class="container">
+            <h2 class="services-grid-title">Nuestros Servicios</h2>
+            <p class="services-grid-subtitle">Soluciones tecnológicas integrales para tu negocio</p>
+            
+            <div class="services-grid">
+                <!-- Tarjeta 1: Soporte Técnico -->
+                <div class="service-card" id="soporte-tecnico">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop" alt="Soporte Técnico Especializado - Equipo profesional resolviendo problemas tecnológicos" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Soporte Técnico Especializado</h3>
+                        <p>Ofrecemos soporte técnico profesional y especializado para resolver cualquier problema tecnológico.</p>
+                        <div class="service-card-details" id="soporte-tecnico-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Diagnóstico y solución de problemas</li>
+                                <li><i class="fas fa-check"></i> Asesoría técnica personalizada</li>
+                                <li><i class="fas fa-check"></i> Soporte remoto y presencial</li>
+                                <li><i class="fas fa-check"></i> Capacitación a usuarios</li>
+                                <li><i class="fas fa-check"></i> Mantenimiento preventivo</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="soporte-tecnico-details" aria-label="Expandir detalles de Soporte Técnico">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Instalación -->
+                <div class="service-card" id="instalacion">
+                    <div class="service-card-image">
+                        <img src="imagenes.img/Ilustración digital .png" alt="Instalación de Equipos y Periféricos - Servicio profesional de instalación tecnológica" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Instalación de Equipos</h3>
+                        <p>Realizamos instalaciones profesionales de equipos informáticos y periféricos con la más alta calidad.</p>
+                        <div class="service-card-details" id="instalacion-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Instalación de computadoras</li>
+                                <li><i class="fas fa-check"></i> Configuración de impresoras</li>
+                                <li><i class="fas fa-check"></i> Instalación de monitores</li>
+                                <li><i class="fas fa-check"></i> Configuración de redes</li>
+                                <li><i class="fas fa-check"></i> Equipos de oficina</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="instalacion-details" aria-label="Expandir detalles de Instalación de Equipos">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Videovigilancia -->
+                <div class="service-card" id="videovigilancia">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&h=600&fit=crop" alt="Sistemas de Videovigilancia CCTV - Instalación de cámaras de seguridad profesional" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Videovigilancia (CCTV)</h3>
+                        <p>Implementamos sistemas completos de videovigilancia para proteger tu negocio o residencia.</p>
+                        <div class="service-card-details" id="videovigilancia-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Instalación de cámaras</li>
+                                <li><i class="fas fa-check"></i> Monitoreo en tiempo real</li>
+                                <li><i class="fas fa-check"></i> Almacenamiento en la nube</li>
+                                <li><i class="fas fa-check"></i> Acceso remoto móvil</li>
+                                <li><i class="fas fa-check"></i> Mantenimiento de sistemas</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="videovigilancia-details" aria-label="Expandir detalles de Videovigilancia">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Reparación -->
+                <div class="service-card" id="reparacion">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&h=600&fit=crop" alt="Reparación y Mantenimiento de Computadoras - Servicio técnico especializado" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Reparación y Mantenimiento</h3>
+                        <p>Servicios de reparación y mantenimiento para computadoras e impresoras empresariales y particulares.</p>
+                        <div class="service-card-details" id="reparacion-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Reparación de hardware</li>
+                                <li><i class="fas fa-check"></i> Mantenimiento preventivo</li>
+                                <li><i class="fas fa-check"></i> Limpieza y optimización</li>
+                                <li><i class="fas fa-check"></i> Reparación de impresoras</li>
+                                <li><i class="fas fa-check"></i> Recuperación de datos</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="reparacion-details" aria-label="Expandir detalles de Reparación y Mantenimiento">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Desarrollo -->
+                <div class="service-card" id="desarrollo">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop" alt="Desarrollo de Software Personalizado - Aplicaciones web y móviles a medida" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Desarrollo de Software</h3>
+                        <p>Desarrollamos soluciones de software personalizadas para optimizar los procesos de tu negocio.</p>
+                        <div class="service-card-details" id="desarrollo-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Aplicaciones web y móviles</li>
+                                <li><i class="fas fa-check"></i> Sistemas de gestión</li>
+                                <li><i class="fas fa-check"></i> Software a medida</li>
+                                <li><i class="fas fa-check"></i> Integración de sistemas</li>
+                                <li><i class="fas fa-check"></i> Mantenimiento de apps</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="desarrollo-details" aria-label="Expandir detalles de Desarrollo de Software">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Servidores -->
+                <div class="service-card" id="servidores">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop" alt="Servidores y Infraestructura - Administración y gestión de servidores empresariales" loading="lazy" decoding="async">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Servidores</h3>
+                        <p>Gestión e implementación de infraestructura de servidores para tu empresa.</p>
+                        <div class="service-card-details" id="servidores-details">
+                            <ul class="service-card-features">
+                                <li><i class="fas fa-check"></i> Instalación de servidores</li>
+                                <li><i class="fas fa-check"></i> Administración Windows/Linux</li>
+                                <li><i class="fas fa-check"></i> Virtualización</li>
+                                <li><i class="fas fa-check"></i> Backup y recuperación</li>
+                                <li><i class="fas fa-check"></i> Monitoreo 24/7</li>
+                            </ul>
+                        </div>
+                        <button class="service-card-btn" data-expanded="false" aria-expanded="false" aria-controls="servidores-details" aria-label="Expandir detalles de Servidores">
+                            <span class="btn-text">Más información</span>
+                            <i class="fas fa-chevron-down btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="testimonials-section">
+        <div class="container">
+            <h2 class="testimonials-title">Lo que dicen nuestros clientes</h2>
+            <p class="testimonials-subtitle">Experiencias reales de empresas que confían en nosotros</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Excelente servicio de soporte técnico. Resolvieron nuestros problemas de manera rápida y profesional. Muy recomendado."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Empresa Tecnológica</h4>
+                            <span>Cliente Corporativo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"La instalación de nuestro sistema de videovigilancia fue impecable. El equipo es muy profesional y el resultado superó nuestras expectativas."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Comercio Local</h4>
+                            <span>Cliente Satisfecho</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"El desarrollo de software personalizado transformó nuestros procesos. Ahora somos más eficientes y productivos. Gracias C & C."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Startup Innovadora</h4>
+                            <span>Cliente Recurrente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p class="contact-subtitle">Estamos aquí para ayudarte. Contáctanos y te responderemos a la brevedad.</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info-section">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <h3>Correo Electrónico</h3>
+                                <a href="mailto:cyc.soluciones.tecnologicas@gmail.com" aria-label="Enviar correo a cyc.soluciones.tecnologicas@gmail.com">cyc.soluciones.tecnologicas@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <h3>Teléfono</h3>
+                                <a href="tel:+523340980766" aria-label="Llamar al 33 4098 0766">33 4098 0766</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <h3>Ubicación</h3>
+                                <p>México</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <h3>Horarios de Atención</h3>
+                                <p>Lunes - Viernes: 9:00 AM - 6:00 PM<br>Sábados: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-file-invoice" aria-hidden="true"></i>
+                            <div>
+                                <h3>Facturación</h3>
+                                <p>Ofrecemos facturación para todos nuestros servicios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="contact-form-section">
+                    <form class="contact-form" id="contact-form" name="contact" method="POST" action="/" netlify netlify-honeypot="bot-field" data-netlify="true" aria-label="Formulario de contacto">-->
+                        
+   <!-- <form 
+    class="contact-form" 
+    id="contact-form" 
+    name="contacto_slack_final" 
+    method="POST" 
+    action="/" 
+    netlify 
+    netlify-honeypot="bot-field" 
+    data-netlify="true" 
+    aria-label="Formulario de contacto"
+    
+    subject="Nuevo Contacto C&C: to:cyc.soluciones.tecnologicas@gmail.com"
+    > 
+                        Campo oculto para Netlify 
+                        <input type="hidden" name="form-name" value="contacto_slack_final">
+                        <p style="display: none;">
+                            <label>No llenar este campo: <input name="bot-field" type="text" /></label>
+                        </p>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Ingresa tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" placeholder="tu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+52 33 1234 5678">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servicio">Servicio de interés</label>
+                            <select id="servicio" name="servicio" aria-label="Seleccionar servicio de interés">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="soporte-tecnico">Soporte Técnico</option>
+                                <option value="instalacion">Instalación de Equipos</option>
+                                <option value="videovigilancia">Videovigilancia</option>
+                                <option value="reparacion">Reparación y Mantenimiento</option>
+                                <option value="desarrollo">Desarrollo de Software</option>
+                                <option value="servidores">Servidores</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje <span class="required">*</span></label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn" aria-label="Enviar formulario de contacto">
+                            <span>Enviar Mensaje</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+                    </form>-->
+
+                    <div class="contact-form-section">
+    <form 
+    class="contact-form" 
+    id="contact-form" 
+    name="formulario_contacto" 
+    method="POST" 
+    action="/mensaje-enviado.html" 
+    netlify 
+    netlify-honeypot="bot-field" 
+    data-netlify="true" 
+    aria-label="Formulario de contacto"
+    > 
+        <input type="hidden" name="form-name" value="formulario_contacto">
+        
+        <input type="hidden" name="subject" value="Nuevo Contacto C&C">
+        
+        <input type="hidden" name="_to" value="cyc.soluciones.tecnologicas@gmail.com">
+
+        <p style="display: none;">
+            <label>No llenar este campo: <input name="bot-field" type="text" /></label>
+        </p>
+        
+        <div class="form-group">
+            <label for="nombre">Nombre completo <span class="required">*</span></label>
+            <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Ingresa tu nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Correo electrónico <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required aria-required="true" placeholder="tu@email.com">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+52 33 1234 5678">
+        </div>
+
+        <div class="form-group">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio" aria-label="Seleccionar servicio de interés">
+                <option value="">Selecciona un servicio</option>
+                <option value="soporte-tecnico">Soporte Técnico</option>
+                <option value="instalacion">Instalación de Equipos</option>
+                <option value="videovigilancia">Videovigilancia</option>
+                <option value="reparacion">Reparación y Mantenimiento</option>
+                <option value="desarrollo">Desarrollo de Software</option>
+                <option value="servidores">Servidores</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="mensaje">Mensaje <span class="required">*</span></label>
+            <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit-btn" aria-label="Enviar formulario de contacto">
+            <span>Enviar Mensaje</span>
+            <i class="fas fa-paper-plane"></i>
+        </button>
+
+        <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+    </form>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/523340980766?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios" target="_blank" class="btn-whatsapp-floating" aria-label="Contáctanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 C & C - Vanguardia e Innovación en Soluciones Tecnológicas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
