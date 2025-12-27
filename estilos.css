@@ -2142,17 +2142,26 @@ html, body {
 
 .thanks-container {
     /* FORZAR CENTRADO VERTICAL Y HORIZONTAL */
-    height: 100%; /* Ocupar el 100% de la altura del body */
+    /* height: 100%; Ocupar el 100% de la altura del body */
+    min-height: 100vh; /* Asegura que ocupe al menos la altura completa de la ventana */
     display: flex; 
     flex-direction: column;
     justify-content: center; /* Centrado vertical */
     align-items: center;     /* Centrado horizontal */
     text-align: center;
-    padding: 50px 20px;
+    padding: 40px 20px;
+    box-sizing: border-box;
     
     /* COHERENCIA VISUAL (TEXTO CLARO SOBRE FONDO OSCURO) */
     background-color: #1a1a2e; /* Mismo fondo oscuro */
     color: #f0f0f0; /* Texto blanco/gris claro */
+}
+
+/* Contenedor de botones para controlar el ancho */
+.actions-wrapper {
+    width: 100%;
+    max-width: 320px; /* Ancho ideal para botones en móvil */
+    margin-top: 20px;
 }
 
 .thanks-container h1 {
@@ -2177,21 +2186,34 @@ html, body {
 /* Estilo para diferenciar el botón urgente */
 .btn-home {
     /* Estilo base para todos los botones de la página de agradecimiento */
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    display: block; /* Para que ocupen su propia línea */
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
+/* WHATSAPP: Mantenemos el verde que ya definiste */
+.btn-whatsapp {
+    background-color: #25d366 !important; 
+    color: white !important;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da851 !important;
+}
 .btn-urgent {
-    background-color: #4CAF50 !important; /* Verde para urgencia o éxito */
+    background-color: #007bff !important; /* Azul para urgencia o éxito */
     margin-bottom: 15px; 
 }
 
 .btn-urgent:hover {
-    background-color: #45a049 !important;
+    background-color: #0056b3 !important;
 }
 
 /* Ajuste del botón Volver */
