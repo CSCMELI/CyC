@@ -667,3 +667,11 @@ document.querySelectorAll('.service-card-btn').forEach(btn => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  form.addEventListener("submit", function () {
+    const email = document.getElementById("email").value;
+    document.getElementById("reply-to").value = email;
+  });
+});
+
