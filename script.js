@@ -339,52 +339,44 @@ document.querySelectorAll('.service-card-btn').forEach(btn => {
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        // Dejar envío nativo para Netlify (no interceptar)
-        return true;
+        e.preventDefault(); // Evitamos el envío nativo
+
         const formMessage = document.getElementById('form-message');
-        const submitBtn = this.querySelector('.form-submit-btn');
+        const submitBtn = contactForm.querySelector('.form-submit-btn');
         const originalBtnText = submitBtn.innerHTML;
-        
-        // Si el formulario tiene netlify, usar el método correcto
-        if (contactForm.hasAttribute('netlify') || contactForm.hasAttribute('data-netlify')) {
-            // Deshabilitar botón durante el envío
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Enviando...</span><i class="fas fa-spinner fa-spin"></i>';
 
-            // Crear FormData para enviar correctamente a Netlify
-            const formData = new FormData(contactForm);
-            const encodedData = new URLSearchParams(formData).toString();
+        // Deshabilitar botón durante el envío
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Enviando...</span><i class="fas fa-spinner fa-spin"></i>';
 
-            // Enviar a Netlify usando fetch
-            fetch(contactForm.getAttribute('action') || '/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encodedData
-            })
-            .then(response => {
-                if (response.ok) {
-                    formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-                    formMessage.className = 'form-message show success';
-                    formMessage.setAttribute('role', 'alert');
-                    contactForm.reset();
+        // Crear FormData para enviar correctamente a Netlify
+        const formData = new FormData(contactForm);
+        const encodedData = new URLSearchParams(formData).toString();
 
-                    setTimeout(() => {
-                        formMessage.classList.remove('show');
-                    }, 5000);
-                } else {
-                    // Si la respuesta no es ok, intentar envío nativo como respaldo
-                    contactForm.submit();
-                }
-            })
-            .catch(() => {
-                // En caso de error en fetch, usar envío nativo
+        // Enviar a Netlify usando fetch
+        fetch(contactForm.getAttribute('action') || '/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodedData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redirigir a la página personalizada de agradecimiento
+                window.location.href = 'mensaje-enviado.html';
+            } else {
+                // Si la respuesta no es ok, intentar envío nativo como respaldo
                 contactForm.submit();
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            });
+            }
+        })
+        .catch(() => {
+            // En caso de error en fetch, usar envío nativo
+            contactForm.submit();
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
+    });
 
             // Prevenir el comportamiento por defecto (usamos fetch y, si falla, submit nativo)
             e.preventDefault();
@@ -595,7 +587,7 @@ if (contactForm) {
             
             formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 1500);
-    });
+    
     
     // Validación en tiempo real
     const inputs = contactForm.querySelectorAll('input, textarea, select');
@@ -616,7 +608,7 @@ if (contactForm) {
             }
         });
     });
-}
+
 
 // Mejorar accesibilidad: Navegación por teclado en tarjetas
 document.querySelectorAll('.service-card').forEach(card => {
