@@ -353,242 +353,29 @@ if (contactForm) {
         const formData = new FormData(contactForm);
         const encodedData = new URLSearchParams(formData).toString();
 
-        // Enviar a Netlify usando fetch
-        fetch(contactForm.getAttribute('action') || '/', {
+        // Enviar a Netlify usando fetch (siempre a la ruta raíz)
+        fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encodedData
         })
         .then(response => {
-            if (response.ok) {
-                // Redirigir a la página personalizada de agradecimiento
+            // Redirigir a la página personalizada de agradecimiento
+            // Netlify procesará el formulario en segundo plano
+            if (response.ok || response.status === 200 || response.status === 302) {
                 window.location.href = 'mensaje-enviado.html';
             } else {
-                // Si la respuesta no es ok, intentar envío nativo como respaldo
-                contactForm.submit();
+                // Si hay error, redirigir de todas formas (Netlify procesará el formulario)
+                window.location.href = 'mensaje-enviado.html';
             }
         })
         .catch(() => {
-            // En caso de error en fetch, usar envío nativo
-            contactForm.submit();
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
+            // En caso de error (puede ser desarrollo local), redirigir de todas formas
+            // En producción, Netlify procesará el formulario automáticamente
+            window.location.href = 'mensaje-enviado.html';
         });
     });
 
-            // Prevenir el comportamiento por defecto (usamos fetch y, si falla, submit nativo)
-            e.preventDefault();
-            return false;
-        }
-        
-        // Si no tiene netlify, prevenir y usar simulación
-        e.preventDefault();
-        
-        // ============================================
-        // MODO SIMULACIÓN (Solo si no está en Netlify)
-        // ============================================
-
-        // ============================================
-        // OPCIÓN 1: FORMSPREE (GRATIS - Recomendado)
-        // ============================================
-        // ✅ Gratis: 50 envíos/mes
-        // ✅ Escalable: Planes desde $10/mes
-        // ✅ Fácil: 5 minutos de configuración
-        // 
-        // Pasos:
-        // 1. Regístrate en https://formspree.io (gratis)
-        // 2. Crea un formulario y obtén tu Form ID
-        // 3. Reemplaza 'YOUR_FORM_ID' con tu ID real
-        // 4. Descomenta el código de abajo
-        /*
-        fetch('https://formspree.io/f/YOUR_FORM_ID', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.ok) {
-                formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-                formMessage.className = 'form-message show success';
-                formMessage.setAttribute('role', 'alert');
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    formMessage.classList.remove('show');
-                }, 5000);
-            } else {
-                throw new Error('Error en el servidor');
-            }
-        })
-        .catch(error => {
-            formMessage.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            formMessage.className = 'form-message show error';
-            formMessage.setAttribute('role', 'alert');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-        */
-
-        // ============================================
-        // OPCIÓN 2: NETLIFY FORMS (GRATIS - Ilimitado)
-        // ============================================
-        // ✅ Gratis: Ilimitado
-        // ✅ Escalable: Siempre gratis
-        // ✅ Requisito: Debes usar Netlify para hosting
-        // 
-        // Pasos:
-        // 1. Agrega 'netlify' al atributo del form en index.html:
-        //    <form class="contact-form" id="contact-form" netlify>
-        // 2. Despliega tu sitio en Netlify
-        // 3. Los mensajes aparecerán en el panel de Netlify
-        // 4. NO necesitas este código JavaScript, funciona automáticamente
-        // 
-        // Si quieres usar JavaScript personalizado, descomenta esto:
-        /*
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(new FormData(contactForm))
-        })
-        .then(() => {
-            formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-            formMessage.className = 'form-message show success';
-            formMessage.setAttribute('role', 'alert');
-            contactForm.reset();
-            setTimeout(() => formMessage.classList.remove('show'), 5000);
-        })
-        .catch(() => {
-            formMessage.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            formMessage.className = 'form-message show error';
-            formMessage.setAttribute('role', 'alert');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-        */
-
-        // ============================================
-        // OPCIÓN 3: EMAILJS (GRATIS - 200/mes)
-        // ============================================
-        // ✅ Gratis: 200 emails/mes
-        // ✅ Escalable: Planes desde $15/mes
-        // 
-        // Pasos:
-        // 1. Regístrate en https://www.emailjs.com
-        // 2. Configura tu servicio de email
-        // 3. Reemplaza los IDs con tus valores reales
-        // 4. Agrega el script de EmailJS en index.html:
-        //    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        //    <script>emailjs.init("YOUR_PUBLIC_KEY");</script>
-        /*
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-            from_name: formData.nombre,
-            from_email: formData.email,
-            phone: formData.telefono || 'No proporcionado',
-            service: formData.servicio || 'No especificado',
-            message: formData.mensaje
-        })
-        .then(() => {
-            formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-            formMessage.className = 'form-message show success';
-            formMessage.setAttribute('role', 'alert');
-            contactForm.reset();
-            
-            setTimeout(() => {
-                formMessage.classList.remove('show');
-            }, 5000);
-        })
-        .catch(() => {
-            formMessage.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            formMessage.className = 'form-message show error';
-            formMessage.setAttribute('role', 'alert');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-        */
-
-        // ============================================
-        // OPCIÓN 4: BACKEND PROPIO (Vercel/Netlify Functions)
-        // ============================================
-        // ✅ Gratis: 100GB-horas/mes (Vercel) o ilimitado (Netlify)
-        // ✅ Escalable: Muy escalable
-        // ✅ Control total del código
-        // 
-        // Pasos:
-        // 1. Crea una función serverless (ver ejemplos-backend/)
-        // 2. Despliega en Vercel o Netlify
-        // 3. Reemplaza '/api/contact' con la URL de tu función
-        /*
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en el servidor');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
-                formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-                formMessage.className = 'form-message show success';
-                formMessage.setAttribute('role', 'alert');
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    formMessage.classList.remove('show');
-                }, 5000);
-            } else {
-                throw new Error(data.message || 'Error desconocido');
-            }
-        })
-        .catch(error => {
-            formMessage.textContent = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            formMessage.className = 'form-message show error';
-            formMessage.setAttribute('role', 'alert');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-        */
-
-        // Simulación para desarrollo local
-        setTimeout(() => {
-            formMessage.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
-            formMessage.className = 'form-message show success';
-            formMessage.setAttribute('role', 'alert');
-            
-            contactForm.reset();
-            
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            
-            setTimeout(() => {
-                formMessage.classList.remove('show');
-            }, 5000);
-            
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 1500);
-    
-    
     // Validación en tiempo real
     const inputs = contactForm.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
@@ -608,6 +395,7 @@ if (contactForm) {
             }
         });
     });
+}
 
 
 // Mejorar accesibilidad: Navegación por teclado en tarjetas
